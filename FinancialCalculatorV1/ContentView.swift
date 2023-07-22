@@ -41,18 +41,35 @@ struct ContentView: View {
                     LazyVGrid(columns: adaptiveColumns, spacing: 20) {
                         ForEach(buttonTypes) { button in
                             
-                            NavigationLink(destination: SavingView()) {
-                                ItemView(item: button)
-                            }
-                            .buttonStyle(PlainButtonStyle())
+                            let type = button.title;
                             
-                            /* Button(action: {
-                                print("button clicked")
-                            }) {
-                                ItemView(item: button)
+                            switch type {
+                            case "Savings":
+                                NavigationLink(destination: SavingView()) {
+                                    ItemView(item: button)
+                                }
+                                .buttonStyle(PlainButtonStyle())
+                            case "Loan":
+                                NavigationLink(destination: LoanView()) {
+                                    ItemView(item: button)
+                                }
+                                .buttonStyle(PlainButtonStyle())
+                            case "Mortgage":
+                                NavigationLink(destination: MortgageView()) {
+                                    ItemView(item: button)
+                                }
+                                .buttonStyle(PlainButtonStyle())
+                            case "Help":
+                                NavigationLink(destination: HelpView()) {
+                                    ItemView(item: button)
+                                }
+                                .buttonStyle(PlainButtonStyle())
+                            default:
+                                NavigationLink(destination: SavingView()) {
+                                    ItemView(item: button)
+                                }
+                                .buttonStyle(PlainButtonStyle())
                             }
-                            .buttonStyle(PlainButtonStyle())*/
-                            
                         }
                     }
                     .padding(.horizontal)
@@ -60,10 +77,6 @@ struct ContentView: View {
                 }
                 .background(Color.white)
                 .ignoresSafeArea()
-                
-                NavigationLink(destination: Text("Savings"), label: {
-                    Text("Next")
-                })
                 
             }
         }
