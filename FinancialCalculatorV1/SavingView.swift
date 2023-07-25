@@ -9,57 +9,87 @@ import SwiftUI
 
 struct SavingView: View {
     
-    @State var presentValueText: String = ""
+    enum FocusedField {
+        case int, dec
+    }
+    
+    // form fields
+    @State var presentValueText = ""
+    @State var futureValueText = ""
+    @State var interestRate = ""
+    @State var noOfPayments = ""
+    @State var payment = ""
+    @State var noOfCompounds = ""
+    
     @State var data: [String] = []
     
+    @FocusState var focussedField: FocusedField?
+
     var body: some View {
-        NavigationView{
-            VStack{
-                TextField("Present Value", text:$presentValueText)
-                    .padding()
-                    .background(Color.gray.opacity(0.2).cornerRadius(10))
-                    .foregroundColor(.black)
-                    .font(.headline)
-                
-                TextField("Present Value", text:$presentValueText)
-                    .padding()
-                    .background(Color.gray.opacity(0.2).cornerRadius(10))
-                    .foregroundColor(.black)
-                    .font(.headline)
-                
-                TextField("Present Value", text:$presentValueText)
-                    .padding()
-                    .background(Color.gray.opacity(0.2).cornerRadius(10))
-                    .foregroundColor(.black)
-                    .font(.headline)
-                
-                TextField("Present Value", text:$presentValueText)
-                    .padding()
-                    .background(Color.gray.opacity(0.2).cornerRadius(10))
-                    .foregroundColor(.black)
-                    .font(.headline)
-                
-                TextField("Present Value", text:$presentValueText)
-                    .padding()
-                    .background(Color.gray.opacity(0.2).cornerRadius(10))
-                    .foregroundColor(.black)
-                    .font(.headline)
-                
-                Button(action: {
+        NavigationView {
+            ScrollView {
+                VStack {
+                    TextField("Present Value", text:$presentValueText)
+                        .modifier(TextFieldStyleViewModifier())
+                        .focused($focussedField, equals: .int)
+                        .numbersOnly($presentValueText)
                     
-                }, label: {
-                    Text("Calculate".uppercased())
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue.cornerRadius(10))
-                        .foregroundColor(.white)
-                        .font(.headline)
-                })
-                
-                Spacer()
-            }
+                    TextField("Future Value", text:$futureValueText)
+                        .modifier(TextFieldStyleViewModifier())
+                        .focused($focussedField, equals: .dec)
+                        .numbersOnly($futureValueText, includeDecimal: true)
+                    
+                    TextField("Interest", text: $interestRate)
+                        .modifier(TextFieldStyleViewModifier())
+                        .focused($focussedField, equals: .dec)
+                        .numbersOnly($interestRate, includeDecimal: true)
+                    
+                    TextField("Payment", text:$payment)
+                        .modifier(TextFieldStyleViewModifier())
+                        .focused($focussedField, equals: .int)
+                        .numbersOnly($payment)
+                    
+                    TextField("No. of Payments Per Year", text:$noOfPayments)
+                        .modifier(TextFieldStyleViewModifier())
+                        .focused($focussedField, equals: .dec)
+                        .numbersOnly($noOfPayments, includeDecimal: true)
+                    
+                    TextField("No. of Compounds Per Year", text: $noOfCompounds)
+                        .modifier(TextFieldStyleViewModifier())
+                        .focused($focussedField, equals: .dec)
+                        .numbersOnly($noOfCompounds, includeDecimal: true)
+                    
+                    Button(action: {
+                        
+                    }, label: {
+                        Text("Calculate".uppercased())
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.blue.cornerRadius(10))
+                            .foregroundColor(.white)
+                            .font(.headline)
+                    })
+                    
+                    Spacer()
+                }            }
             .padding(30)
             .navigationTitle("Savings")
+            // enable hiding the keyboard
+            .toolbar{
+                ToolbarItem(placement: .keyboard) {
+                    Spacer()
+                }
+                ToolbarItem(placement: .keyboard) {
+                    Button{
+                        focussedField = nil
+                    } label: {
+                        Image(systemName: "keyboard.chevron.compact.down")
+                    }
+                }
+            }
+            .onAppear{
+                UITextField.appearance().clearButtonMode = .whileEditing
+            }
         }
     }
     

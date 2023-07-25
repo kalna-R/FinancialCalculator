@@ -15,14 +15,12 @@ struct Item: Identifiable {
 }
 
 struct ContentView: View {
-    
-    // private var buttonTypes:[String] = ["Savings", "Loan", "Mortgage", "Help"]
-    
+
     let buttonTypes = [
         Item(title: "Savings", image: "savings", imageColor: .white),
         Item(title: "Loan", image: "loan", imageColor: .blue),
         Item(title: "Mortgage", image: "mortgage", imageColor: .blue),
-        Item(title: "Help", image: "help 2", imageColor: Color.orange.opacity(0.8))
+        Item(title: "Help", image: "help 1", imageColor: Color.orange.opacity(0.8))
     ]
     
     private let adaptiveColumns = [
@@ -42,7 +40,6 @@ struct ContentView: View {
                         ForEach(buttonTypes) { button in
                             
                             let type = button.title;
-                            
                             switch type {
                             case "Savings":
                                 NavigationLink(destination: SavingView()) {
@@ -77,7 +74,6 @@ struct ContentView: View {
                 }
                 .background(Color.white)
                 .ignoresSafeArea()
-                
             }
         }
     }
@@ -121,7 +117,7 @@ struct ItemView: View {
                     .frame(width: 50)
                 
                 Text(item.title)
-                    .font(.system(size: 20, weight: .medium, design: .rounded))
+                    .font(.system(size: 20, weight: .regular, design: .rounded))
                     .foregroundColor(Color.black.opacity(0.9))
             }
             .frame(width: reader.size.width, height: reader.size.height)

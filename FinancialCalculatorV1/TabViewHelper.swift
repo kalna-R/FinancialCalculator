@@ -10,10 +10,29 @@ import SwiftUI
 struct TabViewHelper: View {
     var body: some View {
         TabView {
-         SavingView()
+            
+            SavingView()
                 .tabItem{
-                    Image(systemName: "savings")
+                    Image(systemName: "dollarsign")
                     Text("Savings")
+                }
+            
+            LoanView()
+                .tabItem{
+                    Image(systemName: "house")
+                    Text("Loans")
+                }
+            
+            MortgageView()
+                .tabItem{
+                    Image(systemName: "banknote")
+                    Text("Mortgage")
+                }
+            
+            HelpView()
+                .tabItem{
+                    Image(systemName: "list.bullet.rectangle")
+                    Text("View")
                 }
         }
     }
