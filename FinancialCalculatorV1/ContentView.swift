@@ -24,7 +24,7 @@ struct ContentView: View {
     ]
     
     private let adaptiveColumns = [
-        GridItem(.adaptive(minimum: 170), spacing: 20)
+        GridItem(.adaptive(minimum: 120), spacing: 20)
     ]
     
     var body: some View {
@@ -38,10 +38,9 @@ struct ContentView: View {
                     // nav icons
                     LazyVGrid(columns: adaptiveColumns, spacing: 20) {
                         ForEach(buttonTypes) { button in
-                            
                             let type = button.title;
                             switch type {
-                            case "Savings":
+                           case "Savings":
                                 NavigationLink(destination: SavingView()) {
                                     ItemView(item: button)
                                 }
@@ -57,7 +56,7 @@ struct ContentView: View {
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             case "Help":
-                                NavigationLink(destination: HelpView()) {
+                                NavigationLink(destination: HelpView() ) {
                                     ItemView(item: button)
                                 }
                                 .buttonStyle(PlainButtonStyle())
@@ -82,7 +81,7 @@ struct ContentView: View {
 var headerView: some View {
     VStack {
         VStack{
-            Image("calc")
+            Image("calc") // top logo
                 .resizable()
                 .frame(width:200, height: 100)
                 .clipShape(Circle())
@@ -99,7 +98,7 @@ var headerView: some View {
                 .font(.system(size: 20, weight: .medium, design: .rounded))
         }
     }
-    .frame(height: 400)
+    .frame(height: 380)
     .frame(maxWidth: .infinity)
     .background(Color.blue.opacity(0.6))
 }

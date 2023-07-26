@@ -11,6 +11,7 @@ import Combine
 struct NumbersOnlyViewModifier: ViewModifier {
     
     @Binding var text: String
+    
     var includeDecimal: Bool
     
     func body(content: Content) -> some View {

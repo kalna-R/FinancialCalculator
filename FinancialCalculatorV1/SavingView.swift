@@ -14,12 +14,13 @@ struct SavingView: View {
     }
     
     // form fields
-    @State var presentValueText = ""
-    @State var futureValueText = ""
-    @State var interestRate = ""
-    @State var noOfPayments = ""
-    @State var payment = ""
-    @State var noOfCompounds = ""
+    @State private var presentValueText = ""
+    @State private var futureValueText = ""
+    @State private var interestRate = ""
+    @State private var noOfPayments = ""
+    @State private var payment = ""
+    @State private var noOfCompounds = ""
+    @State private var isCompoundSaving = false
     
     @State var data: [String] = []
     
@@ -39,7 +40,7 @@ struct SavingView: View {
                         .focused($focussedField, equals: .dec)
                         .numbersOnly($futureValueText, includeDecimal: true)
                     
-                    TextField("Interest", text: $interestRate)
+                    TextField("Interest Rate %", text: $interestRate)
                         .modifier(TextFieldStyleViewModifier())
                         .focused($focussedField, equals: .dec)
                         .numbersOnly($interestRate, includeDecimal: true)
@@ -59,8 +60,17 @@ struct SavingView: View {
                         .focused($focussedField, equals: .dec)
                         .numbersOnly($noOfCompounds, includeDecimal: true)
                     
+                    Toggle(isOn: $isCompoundSaving, label: {
+                        Text("Compound Saving")
+                            .foregroundColor(Color.black.opacity(0.5))
+                    }
+                    )
+                    .padding()
+                    .toggleStyle(SwitchToggleStyle(tint: .blue))
+                    
                     Button(action: {
-                        
+                        // call calculation method
+                        calculate()
                     }, label: {
                         Text("Calculate".uppercased())
                             .padding()
@@ -93,8 +103,85 @@ struct SavingView: View {
         }
     }
     
-    func calculate() {
+    private func calculate() {
+        // get all empty fields
+        let emptyInputFields = [presentValueText, futureValueText, interestRate, payment, noOfPayments]
+            .filter{ $0.isEmpty }
         
+        // define which formular to call for each input
+        if (emptyInputFields.count > 1) {
+            // show error - fill required fields
+        }
+        if(emptyInputFields.count == 0) {
+            // show error - leave one field empty
+        }
+        //if(emptyInputFields.count == 1){
+            // get calculation method
+            calculationMethod()
+        //}
+    }
+    
+    private func calculationMethod() {
+        if (presentValueText.isEmpty){
+            calculatePresentValue()
+        }
+        if (futureValueText.isEmpty){
+            calculateFututrValue()
+        }
+        if (interestRate.isEmpty){
+            calculateInterest()
+        }
+        if (payment.isEmpty){
+            calculatePayment()
+        }
+        if (noOfPayments.isEmpty){
+            noOfPayments = String(format: "%.2f", calculateNoOfPayments())
+            print(noOfPayments)
+        }
+    }
+    
+    // calculate
+    
+    private func calculatePresentValue(){
+            
+    }
+    
+    private func calculateFututrValue(){
+        
+    }
+    
+    private func calculateInterest(){
+        
+       
+
+    }
+    
+    private func calculatePayment(){
+        
+    }
+    
+    
+    // todo
+    private func calculateNoOfPayments() -> Double {
+        guard let pv = Double(presentValueText),
+              let i = Double(interestRate),
+              let pmt = Double(payment)
+        else {
+            return 0.0
+        }
+        
+        let interestPerMonth = i / 12
+        let numerator = pmt / interestPerMonth
+        let denominator = numerator - pv
+        let numberOfPayments = log(numerator / denominator) / log(1 + interestPerMonth)
+        
+        return numberOfPayments
+    }
+    
+    struct LoanView_Previews: PreviewProvider {
+        static var previews: some View {
+            LoanView()
+        }
     }
 }
 

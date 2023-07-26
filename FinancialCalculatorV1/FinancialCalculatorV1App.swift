@@ -11,7 +11,8 @@ import SwiftUI
 struct FinancialCalculatorV1App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashScreenView()
+            // ContentView()
         }
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		722CD11E2A71A49B00CF7A10 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722CD11D2A71A49B00CF7A10 /* SplashScreenView.swift */; };
 		7245995A2A6C517E00658DA6 /* SavingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724599592A6C517E00658DA6 /* SavingView.swift */; };
 		725077552A6CFC5A006B2AE7 /* NumbersOnlyViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725077542A6CFC5A006B2AE7 /* NumbersOnlyViewModifier.swift */; };
 		725077572A6D1214006B2AE7 /* TextFieldStyleViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725077562A6D1214006B2AE7 /* TextFieldStyleViewModifier.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		722CD11D2A71A49B00CF7A10 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		724599592A6C517E00658DA6 /* SavingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingView.swift; sourceTree = "<group>"; };
 		725077542A6CFC5A006B2AE7 /* NumbersOnlyViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersOnlyViewModifier.swift; sourceTree = "<group>"; };
 		725077562A6D1214006B2AE7 /* TextFieldStyleViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyleViewModifier.swift; sourceTree = "<group>"; };
@@ -79,12 +81,13 @@
 			children = (
 				725077532A6CFC22006B2AE7 /* ViewHelpers */,
 				72CF3B952A6BCD81009484AD /* FinancialCalculatorV1App.swift */,
-				72F1B3152A6C61E200F15283 /* TabViewHelper.swift */,
 				72CF3B972A6BCD81009484AD /* ContentView.swift */,
 				724599592A6C517E00658DA6 /* SavingView.swift */,
 				72CF3B992A6BCD82009484AD /* Assets.xcassets */,
+				72F1B3152A6C61E200F15283 /* TabViewHelper.swift */,
 				72CF3B9B2A6BCD82009484AD /* Preview Content */,
 				72F1B30B2A6C57B400F15283 /* LoanView.swift */,
+				722CD11D2A71A49B00CF7A10 /* SplashScreenView.swift */,
 				72F1B30D2A6C583900F15283 /* MortgageView.swift */,
 				72F1B3132A6C609300F15283 /* HelpView.swift */,
 			);
@@ -173,6 +176,7 @@
 				725077572A6D1214006B2AE7 /* TextFieldStyleViewModifier.swift in Sources */,
 				725077552A6CFC5A006B2AE7 /* NumbersOnlyViewModifier.swift in Sources */,
 				72F1B3162A6C61E200F15283 /* TabViewHelper.swift in Sources */,
+				722CD11E2A71A49B00CF7A10 /* SplashScreenView.swift in Sources */,
 				72F1B30E2A6C583900F15283 /* MortgageView.swift in Sources */,
 				72CF3B982A6BCD81009484AD /* ContentView.swift in Sources */,
 				72CF3B962A6BCD81009484AD /* FinancialCalculatorV1App.swift in Sources */,
