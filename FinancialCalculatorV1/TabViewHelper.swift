@@ -39,7 +39,7 @@ struct TabViewHelper: View {
                     }
                     .tag(3)
                 
-                HelpView()
+                HistoryView()
                     .tabItem{
                         Image(systemName: "list.bullet.rectangle")
                         Text("History")

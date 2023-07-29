@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		720036462A74C97500FD9DB5 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720036452A74C97500FD9DB5 /* HistoryView.swift */; };
 		722CD11E2A71A49B00CF7A10 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722CD11D2A71A49B00CF7A10 /* SplashScreenView.swift */; };
 		7245995A2A6C517E00658DA6 /* SavingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724599592A6C517E00658DA6 /* SavingView.swift */; };
 		725077552A6CFC5A006B2AE7 /* NumbersOnlyViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725077542A6CFC5A006B2AE7 /* NumbersOnlyViewModifier.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		720036452A74C97500FD9DB5 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		722CD11D2A71A49B00CF7A10 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		724599592A6C517E00658DA6 /* SavingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingView.swift; sourceTree = "<group>"; };
 		725077542A6CFC5A006B2AE7 /* NumbersOnlyViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersOnlyViewModifier.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				722CD11D2A71A49B00CF7A10 /* SplashScreenView.swift */,
 				72F1B30D2A6C583900F15283 /* MortgageView.swift */,
 				72F1B3132A6C609300F15283 /* HelpView.swift */,
+				720036452A74C97500FD9DB5 /* HistoryView.swift */,
 			);
 			path = FinancialCalculatorV1;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				725077592A6D1419006B2AE7 /* TextFieldFocusStyleViewModifier.swift in Sources */,
+				720036462A74C97500FD9DB5 /* HistoryView.swift in Sources */,
 				725077572A6D1214006B2AE7 /* TextFieldStyleViewModifier.swift in Sources */,
 				725077552A6CFC5A006B2AE7 /* NumbersOnlyViewModifier.swift in Sources */,
 				72F1B3162A6C61E200F15283 /* TabViewHelper.swift in Sources */,

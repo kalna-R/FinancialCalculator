@@ -174,136 +174,8 @@
             filePath = "FinancialCalculatorV1/LoanView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "521DC22A-A766-4400-B2D6-B5376FF41E6E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FinancialCalculatorV1/LoanView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "calculationMethod()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "521DC22A-A766-4400-B2D6-B5376FF41E6E - 3dd71ec21cc9567e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FinancialCalculatorV1.LoanView.calculationMethod() -&gt; ()"
-                  moduleName = "FinancialCalculatorV1"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user233619/Desktop/FinancialCalculatorV1/FinancialCalculatorV1/LoanView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "125"
-                  endingLineNumber = "125"
-                  offsetFromSymbolStart = "336">
-               </Location>
-               <Location
-                  uuid = "521DC22A-A766-4400-B2D6-B5376FF41E6E - 3dd71ec21cc9567e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FinancialCalculatorV1.LoanView.calculationMethod() -&gt; ()"
-                  moduleName = "FinancialCalculatorV1"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user233619/Desktop/FinancialCalculatorV1/FinancialCalculatorV1/LoanView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "125"
-                  endingLineNumber = "125"
-                  offsetFromSymbolStart = "352">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B2FFDCD2-1D9F-41A7-BE5E-17C236CCC947"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FinancialCalculatorV1/LoanView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "calculationMethod()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B2FFDCD2-1D9F-41A7-BE5E-17C236CCC947 - 3dd71ec21cc9488b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FinancialCalculatorV1.LoanView.calculationMethod() -&gt; ()"
-                  moduleName = "FinancialCalculatorV1"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user233619/Desktop/FinancialCalculatorV1/FinancialCalculatorV1/LoanView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "112"
-                  endingLineNumber = "112"
-                  offsetFromSymbolStart = "32">
-               </Location>
-               <Location
-                  uuid = "B2FFDCD2-1D9F-41A7-BE5E-17C236CCC947 - 3dd71ec21cc9488b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FinancialCalculatorV1.LoanView.calculationMethod() -&gt; ()"
-                  moduleName = "FinancialCalculatorV1"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user233619/Desktop/FinancialCalculatorV1/FinancialCalculatorV1/LoanView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "112"
-                  endingLineNumber = "112"
-                  offsetFromSymbolStart = "48">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "93DD64B5-AEB2-4B6C-BEBD-F114CA47A53C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FinancialCalculatorV1/LoanView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
-            landmarkName = "calculateNoOfPayments()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9D042BF7-12A2-491A-8B22-23B69EA616A4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FinancialCalculatorV1/LoanView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "calculationMethod()"
-            landmarkType = "7">
+            startingLineNumber = "223"
+            endingLineNumber = "223">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -368,6 +240,277 @@
             endingLineNumber = "14"
             landmarkName = "body(content:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "872F47D8-002B-434C-8509-35AFA2AF5AEC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinancialCalculatorV1/MortgageView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C0FF8203-6AE1-45E9-8C39-800A49BDFA47"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinancialCalculatorV1/LoanView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "calculationMethod()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E09A604E-F9A4-42CE-BF8E-7B7AC4E6435D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinancialCalculatorV1/LoanView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "calculatePayment()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E09A604E-F9A4-42CE-BF8E-7B7AC4E6435D - 4129e04dc3d96c68"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FinancialCalculatorV1.LoanView.calculatePayment() -&gt; Swift.Double"
+                  moduleName = "FinancialCalculatorV1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user233619/Desktop/FinancialCalculatorV1/FinancialCalculatorV1/LoanView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "197"
+                  endingLineNumber = "197"
+                  offsetFromSymbolStart = "420">
+               </Location>
+               <Location
+                  uuid = "E09A604E-F9A4-42CE-BF8E-7B7AC4E6435D - 4129e04dc3d96c68"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FinancialCalculatorV1.LoanView.calculatePayment() -&gt; Swift.Double"
+                  moduleName = "FinancialCalculatorV1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user233619/Desktop/FinancialCalculatorV1/FinancialCalculatorV1/LoanView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "197"
+                  endingLineNumber = "197"
+                  offsetFromSymbolStart = "492">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE342A32-CC65-435F-9F36-6E53D1BA45A0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinancialCalculatorV1/LoanView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "calculationMethod()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "65D1F38F-B28B-4FDD-A8AD-68F62434FEF1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinancialCalculatorV1/LoanView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "calculationMethod()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "93947888-7C72-457F-85F1-568872C65D49"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinancialCalculatorV1/LoanView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "calculatePresentValue()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "93947888-7C72-457F-85F1-568872C65D49 - f40f6e98e4e730d7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FinancialCalculatorV1.LoanView.calculatePresentValue() -&gt; Swift.Double"
+                  moduleName = "FinancialCalculatorV1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user233619/Desktop/FinancialCalculatorV1/FinancialCalculatorV1/LoanView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "171"
+                  endingLineNumber = "171"
+                  offsetFromSymbolStart = "464">
+               </Location>
+               <Location
+                  uuid = "93947888-7C72-457F-85F1-568872C65D49 - f40f6e98e4e730b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FinancialCalculatorV1.LoanView.calculatePresentValue() -&gt; Swift.Double"
+                  moduleName = "FinancialCalculatorV1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user233619/Desktop/FinancialCalculatorV1/FinancialCalculatorV1/LoanView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "170"
+                  endingLineNumber = "170"
+                  offsetFromSymbolStart = "464">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3096FB37-49A2-4ABB-B05B-8B08F95453C3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinancialCalculatorV1/SavingView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
+            landmarkName = "calculateInterest()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "256A481F-A1A1-4965-9D8F-1E7945C21F54"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinancialCalculatorV1/SavingView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
+            landmarkName = "calculateNoOfPayments()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6F25E122-2CE1-4544-AD96-B0EFB8BA49AA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinancialCalculatorV1/SavingView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
+            landmarkName = "calculationMethod()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "103BD0F9-D0D9-426F-9394-FB61C1ED72B5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinancialCalculatorV1/SavingView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "305"
+            endingLineNumber = "305"
+            landmarkName = "calculateFututrValueSeries()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "103BD0F9-D0D9-426F-9394-FB61C1ED72B5 - d95175f4deeedb32"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static FinancialCalculatorV1.SavingView_Previews.previews.getter : some"
+                  moduleName = "FinancialCalculatorV1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user233619/Desktop/FinancialCalculatorV1/FinancialCalculatorV1/SavingView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "305"
+                  endingLineNumber = "305"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "103BD0F9-D0D9-426F-9394-FB61C1ED72B5 - a6e897b8a25db0b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FinancialCalculatorV1.SavingView.calculateFututrValueSeries() -&gt; Swift.Double"
+                  moduleName = "FinancialCalculatorV1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user233619/Desktop/FinancialCalculatorV1/FinancialCalculatorV1/SavingView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "305"
+                  endingLineNumber = "305"
+                  offsetFromSymbolStart = "1032">
+               </Location>
+               <Location
+                  uuid = "103BD0F9-D0D9-426F-9394-FB61C1ED72B5 - a6e897b8a25db0b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FinancialCalculatorV1.SavingView.calculateFututrValueSeries() -&gt; Swift.Double"
+                  moduleName = "FinancialCalculatorV1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user233619/Desktop/FinancialCalculatorV1/FinancialCalculatorV1/SavingView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "305"
+                  endingLineNumber = "305"
+                  offsetFromSymbolStart = "1028">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

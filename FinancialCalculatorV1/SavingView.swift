@@ -14,63 +14,111 @@ struct SavingView: View {
     }
     
     // form fields
-    @State private var presentValueText = ""
-    @State private var futureValueText = ""
-    @State private var interestRate = ""
-    @State private var noOfPayments = ""
-    @State private var payment = ""
-    @State private var noOfCompounds = ""
-    @State private var isCompoundSaving = false
+    @AppStorage("SPRINCIPAL") private var presentValueText = ""
+    @AppStorage("SFUTURE") private var futureValueText = ""
+    @AppStorage("SINTRATE") private var interestRate = ""
+    @AppStorage("SNOPMTS") private var noOfPayments = ""
+    @AppStorage("SPMT") private var payment = ""
+    @AppStorage("SNOCOMPOUNDS") private var noOfCompounds = ""
+    @AppStorage("ISEND") private var isAtEnd = false
     
+    // enable/disable regular contributions
+    @AppStorage("ISON") private var isOn = true
+    
+    // validate data array
     @State var data: [String] = []
+    
+    // handle errors
+    @State private var isAlertVisible = false
+    @State private var emptyFiledsError: String? = nil
     
     @FocusState var focussedField: FocusedField?
 
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack {
-                    TextField("Present Value", text:$presentValueText)
-                        .modifier(TextFieldStyleViewModifier())
-                        .focused($focussedField, equals: .int)
-                        .numbersOnly($presentValueText)
+                VStack (alignment: .leading) {
+                    Group{
+                        Text("Principal Amount")
+                            .font(.headline)
+                            .foregroundColor(Color.black.opacity(0.8))
+                        TextField("Present Value", text:$presentValueText)
+                            .modifier(TextFieldStyleViewModifier())
+                            .focused($focussedField, equals: .dec)
+                            .numbersOnly($presentValueText, includeDecimal: true)
+                        
+                        Text("Future Value")
+                            .font(.headline)
+                            .foregroundColor(Color.black.opacity(0.8))
+                        TextField("Future Value", text:$futureValueText)
+                            .modifier(TextFieldStyleViewModifier())
+                            .focused($focussedField, equals: .dec)
+                            .numbersOnly($futureValueText, includeDecimal: true)
+                        
+                        Text("Annual Interest Rate %")
+                            .font(.headline)
+                            .foregroundColor(Color.black.opacity(0.8))
+                        TextField("Interest Rate", text: $interestRate)
+                            .modifier(TextFieldStyleViewModifier())
+                            .focused($focussedField, equals: .dec)
+                            .numbersOnly($interestRate, includeDecimal: true)
+                        
+                        Text("Time Period (months)")
+                            .font(.headline)
+                            .foregroundColor(Color.black.opacity(0.8))
+                        TextField("Time", text:$noOfPayments)
+                            .modifier(TextFieldStyleViewModifier())
+                            .focused($focussedField, equals: .int)
+                            .numbersOnly($noOfPayments)
+                    }
                     
-                    TextField("Future Value", text:$futureValueText)
-                        .modifier(TextFieldStyleViewModifier())
-                        .focused($focussedField, equals: .dec)
-                        .numbersOnly($futureValueText, includeDecimal: true)
-                    
-                    TextField("Interest Rate %", text: $interestRate)
-                        .modifier(TextFieldStyleViewModifier())
-                        .focused($focussedField, equals: .dec)
-                        .numbersOnly($interestRate, includeDecimal: true)
-                    
-                    TextField("Payment", text:$payment)
-                        .modifier(TextFieldStyleViewModifier())
-                        .focused($focussedField, equals: .int)
-                        .numbersOnly($payment)
-                    
-                    TextField("No. of Payments Per Year", text:$noOfPayments)
-                        .modifier(TextFieldStyleViewModifier())
-                        .focused($focussedField, equals: .dec)
-                        .numbersOnly($noOfPayments, includeDecimal: true)
-                    
-                    TextField("No. of Compounds Per Year", text: $noOfCompounds)
-                        .modifier(TextFieldStyleViewModifier())
-                        .focused($focussedField, equals: .dec)
-                        .numbersOnly($noOfCompounds, includeDecimal: true)
-                    
-                    Toggle(isOn: $isCompoundSaving, label: {
-                        Text("Compound Saving")
+                    Toggle(isOn: $isOn, label: {
+                        Text("Regular Contributions")
                             .foregroundColor(Color.black.opacity(0.5))
                     }
                     )
                     .padding()
                     .toggleStyle(SwitchToggleStyle(tint: .blue))
+                           
+                    Group{
+                        Text("Monthly Payment")
+                            .font(.headline)
+                            .foregroundColor(Color.black.opacity(0.8))
+                        TextField("Monthly Payment", text:$payment)
+                            .modifier(TextFieldStyleViewModifier())
+                            .focused($focussedField, equals: .dec)
+                            .disabled(!isOn)
+                        
+                        Toggle(isOn: $isAtEnd, label: {
+                            Text("Deposit at the end of month")
+                                .foregroundColor(Color.black.opacity(0.5))
+                        }
+                        ).disabled(!isOn)
+                        .padding()
+                        .toggleStyle(SwitchToggleStyle(tint: .blue))
+                    }
                     
                     Button(action: {
-                        // call calculation method
-                        calculate()
+                        
+                        if (isOn) {
+                            // if all fields are valid for series calc, then calculate
+                            let isError = !validateInputSeries()
+                            if isError {
+                                isAlertVisible = true
+                            } else {
+                                let A = calculateFututrValueSeries()
+                                self.futureValueText = String(format: "%2f", A)                            }
+                        }
+                        else {
+                            // if all fields are valid, then calculate
+                            let isError = !validateInput()
+                            if isError {
+                                isAlertVisible = true
+                            } else {
+                                calculationMethod()
+                            }
+                        }
+                        
                     }, label: {
                         Text("Calculate".uppercased())
                             .padding()
@@ -79,9 +127,16 @@ struct SavingView: View {
                             .foregroundColor(.white)
                             .font(.headline)
                     })
-                    
+                    .alert(isPresented: $isAlertVisible) { // validate fields
+                        Alert(title: Text("Error"),
+                              message: Text(emptyFiledsError ?? "Error"),
+                              dismissButton: .default(Text("OK")))
+                    }
+                    .padding()
                     Spacer()
-                }            }
+                }
+                    
+                }
             .padding(30)
             .navigationTitle("Savings")
             // enable hiding the keyboard
@@ -103,85 +158,151 @@ struct SavingView: View {
         }
     }
     
-    private func calculate() {
+    private func validateInput() -> Bool {
+        var isValid = true
+        
         // get all empty fields
-        let emptyInputFields = [presentValueText, futureValueText, interestRate, payment, noOfPayments]
+        let emptyInputFields = [presentValueText, interestRate, noOfPayments, futureValueText]
             .filter{ $0.isEmpty }
         
         // define which formular to call for each input
         if (emptyInputFields.count > 1) {
             // show error - fill required fields
+            isValid = false
+            emptyFiledsError = "Please fill all fields except one"
         }
+        
         if(emptyInputFields.count == 0) {
             // show error - leave one field empty
+            isValid = false
+            emptyFiledsError = "Please leave one field blank to calculate"
         }
-        //if(emptyInputFields.count == 1){
-            // get calculation method
-            calculationMethod()
-        //}
+        return isValid
+    }
+    
+    private func validateInputSeries() -> Bool {
+        var isValid = true
+        
+        // get all empty fields
+        let emptyInputFields = [presentValueText, interestRate, noOfPayments, futureValueText, payment]
+            .filter{ $0.isEmpty }
+        
+        // define which formular to call for each input
+        if (emptyInputFields.count > 1) {
+            // show error - fill required fields
+            isValid = false
+            emptyFiledsError = "Please fill all fields except one"
+        }
+        
+        if(emptyInputFields.count == 0) {
+            // show error - leave one field empty
+            isValid = false
+            emptyFiledsError = "Please leave one field blank to calculate"
+        }
+        return isValid
     }
     
     private func calculationMethod() {
         if (presentValueText.isEmpty){
-            calculatePresentValue()
+            let principal = calculatePresentValue()
+            self.presentValueText = String(format: "%2f", principal)
         }
         if (futureValueText.isEmpty){
-            calculateFututrValue()
+            let amount = calculateFututrValue()
+            self.futureValueText = String(format: "%2f", amount)
         }
         if (interestRate.isEmpty){
-            calculateInterest()
-        }
-        if (payment.isEmpty){
-            calculatePayment()
+            let intRate = calculateInterest()
+            self.interestRate = String(format: "%2f", intRate)
         }
         if (noOfPayments.isEmpty){
-            noOfPayments = String(format: "%.2f", calculateNoOfPayments())
-            print(noOfPayments)
+            let pmt = calculateNoOfPayments()
+            self.noOfPayments = String(Int(pmt.rounded()))
         }
     }
     
-    // calculate
-    
-    private func calculatePresentValue(){
-            
+    // calculate principal amount
+    private func calculatePresentValue() -> Double{
+        let A = Double(futureValueText) ?? 0
+        let r = Double(interestRate) ?? 0
+        let t = Double(noOfPayments) ?? 0 // months
+        let n = 12.00 // monthly for this cw
+        
+        let i = r / 100
+        
+        let denominator = pow((1 + (i/n)), n * t)
+        return A / denominator
     }
     
-    private func calculateFututrValue(){
+    // calculate future value including interest
+    private func calculateFututrValue() -> Double {
+        let r = Double(interestRate) ?? 0
+        let p = Double(presentValueText) ?? 0
+        let n = 12.00
+        let t = Double(noOfPayments) ?? 0
         
+        let i = r / 100
+        
+        return p * (pow((1 + i / n ), n * t))
     }
-    
-    private func calculateInterest(){
-        
-       
 
-    }
-    
-    private func calculatePayment(){
+    // calculate interest
+    private func calculateInterest() -> Double {
+        let a = Double(futureValueText) ?? 0
+        let p = Double(presentValueText) ?? 0
+        let n = 12.00
+        let t = Double(noOfPayments) ?? 0
         
+        let x = pow((a / p), 1/(n * t))
+        
+        return n * (x - 1) * 100
     }
     
-    
-    // todo
+    // calc time period in months
     private func calculateNoOfPayments() -> Double {
-        guard let pv = Double(presentValueText),
-              let i = Double(interestRate),
-              let pmt = Double(payment)
-        else {
-            return 0.0
-        }
+        let a = Double(futureValueText) ?? 0
+        let p = Double(presentValueText) ?? 0
+        let n = 12.00
+        let r = Double(interestRate) ?? 0
+    
+        let i = r / 100
         
-        let interestPerMonth = i / 12
-        let numerator = pmt / interestPerMonth
-        let denominator = numerator - pv
-        let numberOfPayments = log(numerator / denominator) / log(1 + interestPerMonth)
+        let numerator = log(a / p)
+        let denominator = n * (log(1 + i / n))
         
-        return numberOfPayments
+        return numerator / denominator
     }
     
-    struct LoanView_Previews: PreviewProvider {
-        static var previews: some View {
-            LoanView()
+    // calculate future value including interest for series
+    private func calculateFututrValueSeries() -> Double {
+        let r = Double(interestRate) ?? 0
+        let p = Double(presentValueText) ?? 0
+        let pmt = Double(payment) ?? 0
+        let n = 12.00
+        let t = Double(noOfPayments) ?? 0 //months
+        let isEnd = isAtEnd
+        
+        let i = r / 100
+        
+        var futureValueSeries = 0.0
+        
+        if(!isEnd) {
+            let numerator = (pow(1 + i / n, n * t) - 1)
+            let denominator = i / n
+            futureValueSeries = pmt * (numerator / denominator) * (1 + i / n)
+        } else {
+            
+            let r = r / 100.0
+            let n = 12.0
+            
+            futureValueSeries = pmt * ((pow(1 + r / n, n * t) - 1) * (n / r)) * (1 + r / n)
+            
+            /*let numerator = pow(1 + (i / n), n * t) - 1
+             let denominator = i / n
+             futureValueSeries = pmt * (numerator / denominator)*/
         }
+        
+        return futureValueSeries
     }
 }
 

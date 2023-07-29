@@ -44,7 +44,7 @@ struct HelpView: View {
             }
             .tabViewStyle(PageTabViewStyle())
             .frame(height: 300)
-            .background(Rectangle().fill(Color.blue.opacity(0.6)))
+            .background(Rectangle().fill(Color.blue.opacity(0.8)))
             .cornerRadius(20)
         }
         .padding()
