@@ -10,11 +10,14 @@ import SwiftUI
 struct LoanView: View {
     
     // form fields
-    @State var presentValueText = ""
-    @State var futureValueText = ""
-    @State var interestRate = ""
-    @State var noOfPayments = ""
-    @State var payment = ""
+    @AppStorage("LPRINCIPAL") var presentValueText = ""
+    @AppStorage("LINT") var interestRate = ""
+    @AppStorage("LNPMT") var noOfPayments = ""
+    @AppStorage("LPMT") var payment = ""
+    
+    // handle errors
+    @State private var isAlertVisible = false
+    @State private var emptyFiledsError: String? = nil
     
     @State var data: [String] = []
     
@@ -27,35 +30,50 @@ struct LoanView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack {
-                    TextField("Loan Amount", text:$presentValueText)
-                        .modifier(TextFieldStyleViewModifier())
-                        .focused($focussedField, equals: .int)
-                        .numbersOnly($presentValueText)
+                VStack (alignment: .leading){
+                    Group{
+                        Text("Principal Amount")
+                            .font(.headline)
+                            .foregroundColor(Color.black.opacity(0.8))
+                        TextField("Loan Amount", text:$presentValueText)
+                            .modifier(TextFieldStyleViewModifier())
+                            .focused($focussedField, equals: .dec)
+                            .numbersOnly($presentValueText, includeDecimal: true)
+                                                
+                        Text("Interest Rate")
+                            .font(.headline)
+                            .foregroundColor(Color.black.opacity(0.8))
+                        TextField("Interest Rate (%)", text: $interestRate)
+                            .modifier(TextFieldStyleViewModifier())
+                            .focused($focussedField, equals: .dec)
+                            .numbersOnly($interestRate, includeDecimal: true)
+                    }
                     
-                    TextField("Future Value", text:$futureValueText)
-                        .modifier(TextFieldStyleViewModifier())
-                        .focused($focussedField, equals: .dec)
-                        .numbersOnly($futureValueText, includeDecimal: true)
-                    
-                    TextField("Interest Rate (%)", text: $interestRate)
-                        .modifier(TextFieldStyleViewModifier())
-                        .focused($focussedField, equals: .dec)
-                        .numbersOnly($interestRate, includeDecimal: true)
-                    
-                    TextField("Monthly Payment", text:$payment)
-                        .modifier(TextFieldStyleViewModifier())
-                        .focused($focussedField, equals: .int)
-                        .numbersOnly($payment)
-                    
-                    TextField("No. of Payments", text:$noOfPayments)
-                        .modifier(TextFieldStyleViewModifier())
-                        .focused($focussedField, equals: .dec)
-                        .numbersOnly($noOfPayments, includeDecimal: true)
-                    
+                    Group{
+                        Text("Monthly Payment")
+                            .font(.headline)
+                            .foregroundColor(Color.black.opacity(0.8))
+                        TextField("Monthly Payment", text:$payment)
+                            .modifier(TextFieldStyleViewModifier())
+                            .focused($focussedField, equals: .dec)
+                            .numbersOnly($payment, includeDecimal: true)
+                        
+                        Text("No.of Payments")
+                            .font(.headline)
+                            .foregroundColor(Color.black.opacity(0.8))
+                        TextField("Months", text:$noOfPayments)
+                            .modifier(TextFieldStyleViewModifier())
+                            .focused($focussedField, equals: .dec)
+                            .numbersOnly($noOfPayments, includeDecimal: true)
+                    }
                     Button(action: {
-                        // calculate
-                        calculate()
+                        // if all fields are valid, then calculate
+                        let isError = !validateInput()
+                        if isError {
+                            isAlertVisible = true
+                        } else {
+                          calculationMethod()
+                        }
                     }, label: {
                         Text("Calculate".uppercased())
                             .padding()
@@ -64,6 +82,12 @@ struct LoanView: View {
                             .foregroundColor(.white)
                             .font(.headline)
                     })
+                    .alert(isPresented: $isAlertVisible) { // validate fields
+                        Alert(title: Text("Error"),
+                              message: Text(emptyFiledsError ?? "Error"),
+                              dismissButton: .default(Text("OK")))
+                    }
+                    .padding()
                     
                     Spacer()
                 }
@@ -90,76 +114,104 @@ struct LoanView: View {
         }
     }
     
-    private func calculate() {
+    private func validateInput() -> Bool {
+        var isValid = true
+        
         // get all empty fields
-        let emptyInputFields = [presentValueText, futureValueText, interestRate, payment, noOfPayments]
+        let emptyInputFields = [presentValueText, interestRate, payment, noOfPayments]
             .filter{ $0.isEmpty }
         
         // define which formular to call for each input
         if (emptyInputFields.count > 1) {
             // show error - fill required fields
+            isValid = false
+            emptyFiledsError = "Please fill all fields except one"
         }
+        
         if(emptyInputFields.count == 0) {
             // show error - leave one field empty
+            isValid = false
+            emptyFiledsError = "Please leave one field blank to calculate"
         }
-        //if(emptyInputFields.count == 1){
-            // get calculation method
-            calculationMethod()
-        //}
+        return isValid
     }
     
     private func calculationMethod() {
-        if (presentValueText.isEmpty){
-            calculatePresentValue()
-        }
-        if (futureValueText.isEmpty){
-            calculateFututrValue()
+       if (presentValueText.isEmpty){
+            let principal = calculatePresentValue()
+            self.presentValueText = String(format: "%2f", principal)
         }
         if (interestRate.isEmpty){
-            calculateInterest()
+            let intRate = calculateInterest()
+            self.interestRate = String(format: "%2f", intRate)
         }
         if (payment.isEmpty){
-            calculatePayment()
+            let pmt = calculatePayment()
+            self.payment = String(format: "%2f", pmt)
         }
         if (noOfPayments.isEmpty){
-            noOfPayments = String(format: "%.2f", calculateNoOfPayments())
-            print(noOfPayments)
+            let months = calculateNoOfPayments()
+            self.noOfPayments = String(format: "%2f", months)
         }
     }
     
-    // calculate
     
-    private func calculatePresentValue(){
-        	
-    }
-    
-    private func calculateFututrValue(){
+    // calculate loan amount
+    private func calculatePresentValue() -> Double{
+        let pmt = Double(payment) ?? 0
+        let i = Double(interestRate) ?? 0
+        let months = Double(noOfPayments) ?? 0
         
+        let int = i / 12 / 100
+        
+        let a = (pmt / int)
+        let b = 1 - (1 / (pow((1 + int), months)))
+        
+        return a * b
     }
     
-    private func calculateInterest(){
-       
+    // calculate annual interest
+    private func calculateInterest() -> Double{
+        let principal = Double(presentValueText) ?? 0
+        let pmt = Double(payment) ?? 0
+        let noPMT = Double(noOfPayments) ?? 0
+
+        let interestAmount = (pmt * noPMT) - principal
+        
+        let rate = (interestAmount / principal) / noPMT * 12 * 100
+        
+        return rate
 
     }
     
-    private func calculatePayment(){
+    // calculate monthly payment
+    private func calculatePayment() -> Double{
+        let principal = Double(presentValueText) ?? 0
+        let int = Double(interestRate) ?? 0
+        let noPMT = Double(noOfPayments) ?? 0
         
+        //monthly interest
+        let i = int / 100 / 12
+
+        let numerator = principal * i * pow((1 + i), Double(noPMT))
+        let denominator = pow((1 + i), Double(noPMT)) - 1
+        
+        return numerator / denominator
     }
     
+    // calculate no of months
     private func calculateNoOfPayments() -> Double {
-        guard let pv = Double(presentValueText),
-              let i = Double(interestRate),
-              let pmt = Double(payment)
-        else {
-            return 0.0
-        }
+        let principal = Double(presentValueText) ?? 0
+        let int = Double(interestRate) ?? 0
+        let pmt = Double(payment) ?? 0
         
-        let interestPerMonth = i / 12
-        let numerator = pmt / interestPerMonth
-        let denominator = numerator - pv
-        let numberOfPayments = log(numerator / denominator) / log(1 + interestPerMonth)
+        //monthly interest
+        let i = int / 12
+
+        let numerator = log(1 + (i * principal) / pmt)
+        let denominator = log(1 + i)
         
-        return numberOfPayments
+        return numerator / denominator
     }
     
     struct LoanView_Previews: PreviewProvider {
