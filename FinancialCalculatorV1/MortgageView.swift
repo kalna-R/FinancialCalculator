@@ -85,6 +85,7 @@ struct MortgageView: View {
                               message: Text(emptyFiledsError ?? "Error"),
                               dismissButton: .default(Text("OK")))
                     }
+                    .padding()
                     
                     Spacer()
                 }
