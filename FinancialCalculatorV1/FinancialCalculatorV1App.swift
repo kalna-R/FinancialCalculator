@@ -9,10 +9,14 @@ import SwiftUI
 
 @main
 struct FinancialCalculatorV1App: App {
+    
+    // inject core data
+    @StateObject private var dataController = DataController()
+    
     var body: some Scene {
         WindowGroup {
             SplashScreenView()
-            // ContentView()
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }

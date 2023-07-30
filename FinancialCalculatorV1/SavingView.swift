@@ -25,6 +25,9 @@ struct SavingView: View {
     // enable/disable regular contributions
     @AppStorage("ISON") private var isOn = true
     
+    // persistence
+    @Environment(\.managedObjectContext) var moc
+    
     // validate data array
     @State var data: [String] = []
     
@@ -98,6 +101,8 @@ struct SavingView: View {
                         .toggleStyle(SwitchToggleStyle(tint: .blue))
                     }
                     
+                    NavigationLink("View amortization data", destination: AmortizationDataView())
+                    
                     Button(action: {
                         
                         if (isOn) {
@@ -107,7 +112,19 @@ struct SavingView: View {
                                 isAlertVisible = true
                             } else {
                                 let A = calculateFututrValueSeries()
-                                self.futureValueText = String(format: "%2f", A)                            }
+                                self.futureValueText = String(format: "%2f", A)
+                                
+                                // save in core data
+                                let result = CalculationSaving(context: moc)
+                                result.id = UUID()
+                                result.calcType = "Savings"
+                                result.principal = Double(presentValueText) ?? 0
+                                result.fututeValue = Double(futureValueText) ?? 0
+                                result.payment = Double(payment) ?? 0
+                                result.intRate = Double(interestRate) ?? 0
+                                
+                                try? moc.save()
+                            }
                         }
                         else {
                             // if all fields are valid, then calculate
@@ -116,6 +133,17 @@ struct SavingView: View {
                                 isAlertVisible = true
                             } else {
                                 calculationMethod()
+                                
+                                // save in core data
+                                let result = CalculationSaving(context: moc)
+                                result.id = UUID()
+                                result.calcType = "Savings"
+                                result.principal = Double(presentValueText) ?? 0
+                                result.fututeValue = Double(futureValueText) ?? 0
+                                result.payment = Double(payment) ?? 0
+                                result.intRate = Double(interestRate) ?? 0
+                                
+                                try? moc.save()
                             }
                         }
                         
@@ -273,10 +301,10 @@ struct SavingView: View {
         return numerator / denominator
     }
     
-    // calculate future value including interest for series
+    // calculate future value for series
     private func calculateFututrValueSeries() -> Double {
         let r = Double(interestRate) ?? 0
-        let p = Double(presentValueText) ?? 0
+        // let p = Double(presentValueText) ?? 0
         let pmt = Double(payment) ?? 0
         let n = 12.00
         let t = Double(noOfPayments) ?? 0 //months
@@ -296,10 +324,6 @@ struct SavingView: View {
             let n = 12.0
             
             futureValueSeries = pmt * ((pow(1 + r / n, n * t) - 1) * (n / r)) * (1 + r / n)
-            
-            /*let numerator = pow(1 + (i / n), n * t) - 1
-             let denominator = i / n
-             futureValueSeries = pmt * (numerator / denominator)*/
         }
         
         return futureValueSeries

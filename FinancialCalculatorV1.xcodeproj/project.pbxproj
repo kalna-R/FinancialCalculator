@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		720036462A74C97500FD9DB5 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720036452A74C97500FD9DB5 /* HistoryView.swift */; };
-		720036482A7589A300FD9DB5 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720036472A7589A300FD9DB5 /* SwiftUIView.swift */; };
+		721F9EAB2A767F4800E4D2D0 /* AmortizationDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721F9EAA2A767F4800E4D2D0 /* AmortizationDataView.swift */; };
 		722CD11E2A71A49B00CF7A10 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722CD11D2A71A49B00CF7A10 /* SplashScreenView.swift */; };
+		7243C63D2A76621A00769580 /* CalculationSaving+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7243C63B2A76621A00769580 /* CalculationSaving+CoreDataClass.swift */; };
+		7243C63E2A76621A00769580 /* CalculationSaving+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7243C63C2A76621A00769580 /* CalculationSaving+CoreDataProperties.swift */; };
+		7243C6402A7666D700769580 /* HistorySSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7243C63F2A7666D700769580 /* HistorySSubView.swift */; };
 		7245995A2A6C517E00658DA6 /* SavingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724599592A6C517E00658DA6 /* SavingView.swift */; };
 		725077552A6CFC5A006B2AE7 /* NumbersOnlyViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725077542A6CFC5A006B2AE7 /* NumbersOnlyViewModifier.swift */; };
 		725077572A6D1214006B2AE7 /* TextFieldStyleViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725077562A6D1214006B2AE7 /* TextFieldStyleViewModifier.swift */; };
@@ -18,6 +21,13 @@
 		72CF3B982A6BCD81009484AD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF3B972A6BCD81009484AD /* ContentView.swift */; };
 		72CF3B9A2A6BCD82009484AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72CF3B992A6BCD82009484AD /* Assets.xcassets */; };
 		72CF3B9D2A6BCD82009484AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72CF3B9C2A6BCD82009484AD /* Preview Assets.xcassets */; };
+		72D24BDD2A760A0E00172A46 /* CalculateModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 72D24BDB2A760A0E00172A46 /* CalculateModel.xcdatamodeld */; };
+		72D24BE02A760AE100172A46 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D24BDF2A760AE100172A46 /* DataController.swift */; };
+		72D24BE22A76214100172A46 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D24BE12A76214100172A46 /* ListView.swift */; };
+		72D24BE42A762F4300172A46 /* FilteredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D24BE32A762F4300172A46 /* FilteredList.swift */; };
+		72D24BE72A76349B00172A46 /* Calculation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D24BE52A76349B00172A46 /* Calculation+CoreDataClass.swift */; };
+		72D24BE82A76349B00172A46 /* Calculation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D24BE62A76349B00172A46 /* Calculation+CoreDataProperties.swift */; };
+		72D24BEA2A7654DD00172A46 /* HistorySubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D24BE92A7654DD00172A46 /* HistorySubView.swift */; };
 		72F1B30C2A6C57B400F15283 /* LoanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F1B30B2A6C57B400F15283 /* LoanView.swift */; };
 		72F1B30E2A6C583900F15283 /* MortgageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F1B30D2A6C583900F15283 /* MortgageView.swift */; };
 		72F1B3142A6C609300F15283 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F1B3132A6C609300F15283 /* HelpView.swift */; };
@@ -26,8 +36,11 @@
 
 /* Begin PBXFileReference section */
 		720036452A74C97500FD9DB5 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
-		720036472A7589A300FD9DB5 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		721F9EAA2A767F4800E4D2D0 /* AmortizationDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmortizationDataView.swift; sourceTree = "<group>"; };
 		722CD11D2A71A49B00CF7A10 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		7243C63B2A76621A00769580 /* CalculationSaving+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CalculationSaving+CoreDataClass.swift"; path = "FinancialCalculatorV1/Persistence/CalculationSaving+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7243C63C2A76621A00769580 /* CalculationSaving+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CalculationSaving+CoreDataProperties.swift"; path = "FinancialCalculatorV1/Persistence/CalculationSaving+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7243C63F2A7666D700769580 /* HistorySSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySSubView.swift; sourceTree = "<group>"; };
 		724599592A6C517E00658DA6 /* SavingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingView.swift; sourceTree = "<group>"; };
 		725077542A6CFC5A006B2AE7 /* NumbersOnlyViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersOnlyViewModifier.swift; sourceTree = "<group>"; };
 		725077562A6D1214006B2AE7 /* TextFieldStyleViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyleViewModifier.swift; sourceTree = "<group>"; };
@@ -37,6 +50,13 @@
 		72CF3B972A6BCD81009484AD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; usesTabs = 0; wrapsLines = 1; };
 		72CF3B992A6BCD82009484AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72CF3B9C2A6BCD82009484AD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		72D24BDC2A760A0E00172A46 /* CalculateModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalculateModel.xcdatamodel; sourceTree = "<group>"; };
+		72D24BDF2A760AE100172A46 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		72D24BE12A76214100172A46 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		72D24BE32A762F4300172A46 /* FilteredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredList.swift; sourceTree = "<group>"; };
+		72D24BE52A76349B00172A46 /* Calculation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Calculation+CoreDataClass.swift"; path = "FinancialCalculatorV1/Persistence/Calculation+CoreDataClass.swift"; sourceTree = "<group>"; };
+		72D24BE62A76349B00172A46 /* Calculation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Calculation+CoreDataProperties.swift"; path = "FinancialCalculatorV1/Persistence/Calculation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		72D24BE92A7654DD00172A46 /* HistorySubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySubView.swift; sourceTree = "<group>"; };
 		72F1B30B2A6C57B400F15283 /* LoanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanView.swift; sourceTree = "<group>"; };
 		72F1B30D2A6C583900F15283 /* MortgageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageView.swift; sourceTree = "<group>"; };
 		72F1B3132A6C609300F15283 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
@@ -67,6 +87,10 @@
 		72CF3B892A6BCD81009484AD = {
 			isa = PBXGroup;
 			children = (
+				7243C63B2A76621A00769580 /* CalculationSaving+CoreDataClass.swift */,
+				7243C63C2A76621A00769580 /* CalculationSaving+CoreDataProperties.swift */,
+				72D24BE52A76349B00172A46 /* Calculation+CoreDataClass.swift */,
+				72D24BE62A76349B00172A46 /* Calculation+CoreDataProperties.swift */,
 				72CF3B942A6BCD81009484AD /* FinancialCalculatorV1 */,
 				72CF3B932A6BCD81009484AD /* Products */,
 			);
@@ -83,6 +107,7 @@
 		72CF3B942A6BCD81009484AD /* FinancialCalculatorV1 */ = {
 			isa = PBXGroup;
 			children = (
+				72D24BDE2A760AA600172A46 /* Persistence */,
 				725077532A6CFC22006B2AE7 /* ViewHelpers */,
 				72CF3B952A6BCD81009484AD /* FinancialCalculatorV1App.swift */,
 				72CF3B972A6BCD81009484AD /* ContentView.swift */,
@@ -95,7 +120,12 @@
 				72F1B30D2A6C583900F15283 /* MortgageView.swift */,
 				72F1B3132A6C609300F15283 /* HelpView.swift */,
 				720036452A74C97500FD9DB5 /* HistoryView.swift */,
-				720036472A7589A300FD9DB5 /* SwiftUIView.swift */,
+				72D24BE92A7654DD00172A46 /* HistorySubView.swift */,
+				7243C63F2A7666D700769580 /* HistorySSubView.swift */,
+				72D24BE12A76214100172A46 /* ListView.swift */,
+				72D24BE32A762F4300172A46 /* FilteredList.swift */,
+				72D24BDB2A760A0E00172A46 /* CalculateModel.xcdatamodeld */,
+				721F9EAA2A767F4800E4D2D0 /* AmortizationDataView.swift */,
 			);
 			path = FinancialCalculatorV1;
 			sourceTree = "<group>";
@@ -106,6 +136,14 @@
 				72CF3B9C2A6BCD82009484AD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		72D24BDE2A760AA600172A46 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				72D24BDF2A760AE100172A46 /* DataController.swift */,
+			);
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,7 +216,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				720036482A7589A300FD9DB5 /* SwiftUIView.swift in Sources */,
+				72D24BE22A76214100172A46 /* ListView.swift in Sources */,
+				72D24BE82A76349B00172A46 /* Calculation+CoreDataProperties.swift in Sources */,
+				7243C63E2A76621A00769580 /* CalculationSaving+CoreDataProperties.swift in Sources */,
 				725077592A6D1419006B2AE7 /* TextFieldFocusStyleViewModifier.swift in Sources */,
 				720036462A74C97500FD9DB5 /* HistoryView.swift in Sources */,
 				725077572A6D1214006B2AE7 /* TextFieldStyleViewModifier.swift in Sources */,
@@ -186,10 +226,18 @@
 				72F1B3162A6C61E200F15283 /* TabViewHelper.swift in Sources */,
 				722CD11E2A71A49B00CF7A10 /* SplashScreenView.swift in Sources */,
 				72F1B30E2A6C583900F15283 /* MortgageView.swift in Sources */,
+				72D24BE42A762F4300172A46 /* FilteredList.swift in Sources */,
+				72D24BDD2A760A0E00172A46 /* CalculateModel.xcdatamodeld in Sources */,
+				7243C63D2A76621A00769580 /* CalculationSaving+CoreDataClass.swift in Sources */,
+				7243C6402A7666D700769580 /* HistorySSubView.swift in Sources */,
 				72CF3B982A6BCD81009484AD /* ContentView.swift in Sources */,
+				72D24BE72A76349B00172A46 /* Calculation+CoreDataClass.swift in Sources */,
+				72D24BE02A760AE100172A46 /* DataController.swift in Sources */,
 				72CF3B962A6BCD81009484AD /* FinancialCalculatorV1App.swift in Sources */,
+				72D24BEA2A7654DD00172A46 /* HistorySubView.swift in Sources */,
 				72F1B3142A6C609300F15283 /* HelpView.swift in Sources */,
 				72F1B30C2A6C57B400F15283 /* LoanView.swift in Sources */,
+				721F9EAB2A767F4800E4D2D0 /* AmortizationDataView.swift in Sources */,
 				7245995A2A6C517E00658DA6 /* SavingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,6 +437,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		72D24BDB2A760A0E00172A46 /* CalculateModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				72D24BDC2A760A0E00172A46 /* CalculateModel.xcdatamodel */,
+			);
+			currentVersion = 72D24BDC2A760A0E00172A46 /* CalculateModel.xcdatamodel */;
+			path = CalculateModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 72CF3B8A2A6BCD81009484AD /* Project object */;
 }

@@ -19,6 +19,9 @@ struct MortgageView: View {
     @State private var isAlertVisible = false
     @State private var emptyFiledsError: String? = nil
     
+    // persistence
+    @Environment(\.managedObjectContext) var moc
+    
     @State var data: [String] = []
     
     @FocusState var focussedField: FocusedField?
@@ -70,7 +73,17 @@ struct MortgageView: View {
                         if isError {
                             isAlertVisible = true
                         } else {
-                          calculationMethod()
+                            calculationMethod()
+                            
+                            // save in core data
+                            let result = Calculation(context: moc)
+                            result.id = UUID()
+                            result.calcType = "Mortgage"
+                            result.principal = Double(loanAmountValueText) ?? 0
+                            result.payment = Double(payment) ?? 0
+                            result.intRate = Double(interestRate) ?? 0
+                            
+                            try? moc.save()
                         }
                     }, label: {
                         Text("Calculate".uppercased())
