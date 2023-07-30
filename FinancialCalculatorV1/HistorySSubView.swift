@@ -13,7 +13,7 @@ struct HistorySSubView: View {
     @Environment(\.managedObjectContext) var moc
     
     // read data from database
-    @FetchRequest(sortDescriptors: []) var fetchRequest: FetchedResults<CalculationSaving>
+    @FetchRequest(entity: CalculationSaving.entity(), sortDescriptors: [NSSortDescriptor(key: "self", ascending: false)]) var fetchRequest: FetchedResults<CalculationSaving>
     
     var body: some View {
         NavigationView {
